@@ -31,20 +31,20 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // Importarea modelelor
-const Person = require('./models/Person');
-const Car = require('./models/Car');
-
+// const Person = require('./models/Person');
+// const Car = require('./models/Car');
+const Insurance = require('./models/Insurance')
 // Ruta pentru testarea funcționării serverului
 app.get('/api/test', (req, res) => {
   res.status(200).send({ message: 'Serverul funcționează corect!' });
 });
 
 // Endpoint pentru adăugarea unei persoane
-app.post('/api/person', async (req, res) => {
+app.post('/api/insurance', async (req, res) => {
   try {
-    const newPerson = new Person(req.body);
-    const savedPerson = await newPerson.save();
-    res.status(201).json(savedPerson);
+    const newInsurance = new Insurance(req.body);
+    const savedInsurance = await newInsurance.save();
+    res.status(201).json(savedInsurance);
   } catch (err) {
     console.error(err);
     res.status(500).send(err.message);
@@ -52,16 +52,16 @@ app.post('/api/person', async (req, res) => {
 });
 
 // Endpoint pentru adăugarea unei mașini
-app.post('/api/car', async (req, res) => {
-  try {
-    const newCar = new Car(req.body);
-    const savedCar = await newCar.save();
-    res.status(201).json(savedCar);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send(err.message);
-  }
-});
+// app.post('/api/car', async (req, res) => {
+//   try {
+//     const newCar = new Car(req.body);
+//     const savedCar = await newCar.save();
+//     res.status(201).json(savedCar);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send(err.message);
+//   }
+// });
 
 // Middleware pentru gestionarea erorilor 404
 app.use(function(req, res, next) {
