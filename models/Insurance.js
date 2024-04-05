@@ -23,6 +23,8 @@ const InsuranceSchema = new mongoose.Schema({
   PerioadaDeAsigurare: String,
   TipAsigurare: String,
   PretAsigurare: Number, 
+  StatusAsigurare: String, 
+  
 });
 
 module.exports = mongoose.model('Insurance', InsuranceSchema);
