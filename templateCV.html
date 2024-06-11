@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poliță RCA Groupama</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+        }
+        h3 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #2c3e50;
+            padding-left: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e1e1e1;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            background-color: #e8f4f8;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carte Internațională de Asigurare pentru Autovehicule</h1>
+        <h2>International Motor Insurance Card</h2>
+        <h2>Carte Internationale D'Assurance Automobile</h2>
+        
+        <h3>Valabilitate - Valid</h3>
+        <table>
+            <tr>
+                <th>De la (From)</th>
+                <td>{DataInceput}</td>
+            </tr>
+            <tr class="highlight">
+                <th>Până la (To)</th>
+                <td>{DataSfarsit}</td>
+            </tr>
+            <tr>
+                <td colspan="2">(Aceste două date inclusiv - Both dates inclusive)</td>
+            </tr>
+        </table>
+        
+        <h3>Detalii Vehicul</h3>
+        <table>
+            <tr>
+                <th>Nr. înmatriculare/înregistrare</th>
+                <td>{NrInmatriculare}</td>
+            </tr>
+            <tr class="highlight">
+                <th>Categoria vehiculului</th>
+                <td>{CategoriaMasinii}</td>
+            </tr>
+            <tr>
+                <th>Marca vehiculului</th>
+                <td>{MarcaMasinii}</td>
+            </tr>
+        </table>
+        <h3>Detalii Asigurat</h3>
+        <table>
+            <tr>
+                <th>Nume</th>
+                <td>{Nume}</td>
+            </tr>
+            <tr class="highlight">
+                <th>Adresă</th>
+                <td>{Adresa}</td>
+            </tr>
+        </table>
+        
+        <h3>Eliberată de</h3>
+        <table>
+            <tr>
+                <th>Companie</th>
+                <td>Broker de Asigurare-Reasigurare “AUTORIG-ASIG” S.R.L</td>
+            </tr>
+            <tr class="highlight">
+                <th>Data înființării</th>
+                <td>11.11.2009</td>
+            </tr>
+            <tr>
+                <th>Cod fiscal</th>
+                <td>1009600039428</td>
+            </tr>
+            <tr class="highlight">
+                <th>Nr.Reg.Com.</th>
+                <td>J78/1785/2009</td>
+            </tr>
+            <tr>
+                <th>Sediul central</th>
+                <td>Chișinău, Republica Moldova</td>
+            </tr>
+            <tr class="highlight">
+                <th>Puncte de lucru</th>
+                <td>str. Bucuriei, 1, Chișinău, Rep. Moldova</td>
+            </tr>
+            <tr>
+                <th>Forma juridica</th>
+                <td>Societate cu răspundere limitată</td>
+            </tr>
+        </table>
+        <br>
+        <h3>Contract de Asigurare de Răspundere Civilă Auto RCA</h3>
+        <table>
+            <tr class="highlight">
+                <th>Seria si Numar</th>
+                <td>{Seria}</td>
+            </tr>
+        </table>
+        
+        <h3>Detalii Vehicul</h3>
+        <table>
+            <tr>
+                <th>Fel, Tip, Marcă, Model</th>
+                <td>{CategoriaMasinii} {MarcaMasinii} {Modelul}</td>
+            </tr>
+            <tr class="highlight">
+                <th>C.U.I. / C.N.P. Proprietar</th>
+                <td>{CNP}</td>
+            </tr>
+            <tr>
+                <th>Nr. înmatriculare/înregistrare</th>
+                <td>{NrInmatriculare}</td>
+            </tr>
+            <tr class="highlight">
+                <th>Nr. identificare - Serie CIV / Nr. de inventar</th>
+                <td>{NumarulWIN}</td>
+            </tr>
+            <tr>
+                <th>Capacitate cilindrică / Putere</th>
+                <td>{CapacitateCilindrica} cm^3</td>
+            </tr>
+        </table>
+        
+        <h3>Conducători auto declaraţi</h3>
+        <table>
+            <tr>
+                <th>Nume, Prenume, C.N.P.</th>
+                <td>{Nume} {Prenume} {CNP}</td>
+            </tr>
+            <tr>
+                <th>Data nasterii</th>
+                <td>{DataNasterii}</td>
+            </tr>
+        </table>
+        
+        <h3>Valabilitate Contract</h3>
+        <table>
+            <tr>
+                <th>De la</th>
+                <td>{DataInceput}</td>
+            </tr>
+            <tr class="highlight">
+                <th>Până la</th>
+                <td>{DataSfarsit}</td>
+            </tr> 
+        </table>
+        
+        <h3>Prima de asigurare</h3>
+        <table>
+            <tr>
+                <th>Sumă</th>
+                <td>{PretAsigurare}</td>
+            </tr>
+            <tr class="highlight">
+                <th>Clasă Bonus-Malus</th>
+                <td>{CategorieBonus}</td>
+            </tr>
+        </table>
+        
+        <h3>Limite de despăgubire</h3>
+        <table>
+            <tr>
+                <th>Vătămări corporale şi deces</th>
+                <td>1,200,000$</td>
+            </tr>
+            <tr class="highlight">
+                <th>Pagube materiale</th>
+                <td>10,000$ - 100,000$ </td>
+            </tr>
+        </table>
+        <br><br><br><br><br><br><br><br>
+        <!-- Section for Carte Verde -->
+        <h3>Valabilitate Teritorială</h3>
+        <table>
+            <tr>
+                <th>Zona</th>
+                <th>Țări</th>
+            </tr>
+            <tr>
+                <td>UE</td>
+                <td>Austria, Belgia, Bulgaria, Croația, Cipru, Cehia, Danemarca, Estonia, Finlanda, Franța, Germania, Grecia, Ungaria, Irlanda, Italia, Letonia, Lituania, Luxemburg, Malta, Olanda, Polonia, Portugalia, România, Slovacia, Slovenia, Spania, Suedia</td>
+            </tr>
+            <tr class="highlight">
+                <td>Euroasiatic</td>
+                <td>Albania, Andorra, Armenia, Azerbaidjan, Belarus, Bosnia și Herțegovina, Georgia, Islanda, Israel, Kazahstan, Kosovo, Liechtenstein, Moldova, Monaco, Muntenegru, Macedonia de Nord, Norvegia, Rusia, San Marino, Serbia, Elveția, Turcia, Ucraina</td>
+            </tr>
+        </table>
+
+       
+        <h3>Acoperiri şi servicii suplimentare</h3>
+        <p>Canalul de comunicare agreat este următorul: corespondenţă adresă asigurat: {insured_address}.</p>
+
+        <h3>Condiţii contractuale</h3>
+        <p>Condiţiile contractuale sunt cele prevăzute prin dispoziţiile Legii nr. 132/2017 privind asigurarea obligatorie de răspundere civilă auto pentru prejudicii produse terţilor prin accidente de vehicule şi tramvaie şi cele ale legislaţiei secundare emise de către A.S.F. în aplicarea acesteia.</p>
+        <p>Acestea pot fi completate şi cu alte prevederi ce sunt stabilite de comun acord de către asigurat şi asigurător şi sunt prevăzute într-un act addiţional la prezentul contract.</p>
+        
+        <h3>Contract RCA</h3>
+        <p>Contractul RCA, inclusiv orice act adiţional sau anexă la acesta, constituie titlu executoriu pentru ratele scadente şi neachitate, în conformitate cu prevederile art. 5 alin. (3) din Legea nr. 132/2017 privind asigurarea obligatorie de răspundere civilă auto pentru prejudicii produse terţilor prin accidente de vehicule şi tramvaie.</p>
+        <p>Contractul RCA dă dreptul persoanei prejudiciate, în cazul producerii unui prejudiciu, să se poată adresa pentru efectuarea reparaţiei oricărei unităţi reparatoare auto, în condiţiile legii, fără nicio restricţie sau constrângere din partea asigurătorului RCA sau a unităţii reparatoare auto, care ar putea să-i influenţeze opţiunea.</p>
+        
+        <h3>Notă pentru asigurat</h3>
+        <p>În ceea ce priveşte (a) avarierea vehiculului asigurat, indiferent de modalitatea de producere a acesteia; (b) vătămările corporale care nu sunt acoperite conform legistaţiei privind asigurarea de răspundere civilă obligatorie din ţara în care a avut loc accidentul: (c) reînnoirea unei Cărţi Verzi a cărei valabilitate a expirat, Biroul din ţara vizitată nu trebuie să fie contactat, ci se va contacta direct asigurătorul, dacă nu există alte instrucţiuni din partea asigurătorului.</p>
+        
+        <h3>Protecţia datelor cu caracter personal</h3>
+        <p>Puteţi consulta oricând cea mai recentă versiune a Notei de informare privind protecţia datelor cu caracter personal pe site-ul companiei noastre, accesând următorul link <a href="http://www.groupama.ro/politica-de-confidentialitate">www.groupama.ro/politica-de-confidentialitate</a></p>
+
+        <br><br><br><br><br>
+        <p>Prelucrarea se face în temeiul contractului, în conformitate cu Regulamentul UE 679/2016 al Parlamentului European şi al Consiliului privind protecţia persoanelor fizice în ceea ce priveşte prelucrarea datelor cu caracter personal şi privind libera circulaţie a acestor date şi cu Legea nr. 506/2004 privind prelucrarea datelor cu caracter personal şi protecţia vieţii private în sectorul comunicaţiilor electronice, cu respectarea tuturor drepturilor conferite de legislaţia aplicabilă (dreptul la informare, dreptul de acces, dreptul la rectificarea datelor, dreptul la ştergerea datelor (dreptul de a fi uitat), dreptul la restrângerea prelucrării, dreptul la portabilitatea datelor, dreptul la opoziţie, dreptul de a nu fi supus unei decizii automate, inclusiv profilare).</p>
+                <p><a href="http://www.ritasig.ro">www.ritasig.ro</a></p>
+        <p>Asigurăm tot ce contează pentru tine.</p>
+    </div>
+</body>
+</html>

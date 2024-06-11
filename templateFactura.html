@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Factură Fiscală</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+        .header-table {
+            width: 100%;
+        }
+        .header-table td {
+            border: none;
+            vertical-align: top;
+        }
+        .main-table th, .main-table td {
+            border: 1px solid black;
+        }
+        .main-table th {
+            text-align: center;
+        }
+        .section-title {
+            font-weight: bold;
+            text-align: left;
+        }
+        .no-border {
+            border: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<table class="header-table">
+    <tr>
+        <td>Ex.<br>Nr. exemplarului<br>№ экземпляра</td>
+        <td>
+            <p>Formular tipizat<br>Anexa 1 la Ordinul Ministerului Finanțelor al Republicii Moldova<br>nr.115 din 6 septembrie 2010<br>Типовая форма<br>Приложение 1 к приказу Министерства Финансов Республики Молдова<br>№ 115 от 6 сентября 2010 г.</p>
+        </td>
+    </tr>
+</table>
+
+<h2>FACTURĂ FISCALĂ / НАЛОГОВАЯ НАКЛАДНАЯ</h2>
+<table class="header-table">
+    <tr>
+        <td>Seria, Nr.</td>
+        <td></td>
+    </tr>
+</table>
+
+<p>Data eliberării / дата выдачи: <span>_____________ / __________</span></p>
+
+<table class="header-table">
+    <tr>
+        <td>8. Foaia de parcurs<br>Путевой лист</td>
+        <td>seria:<br>серия:</td>
+        <td>număr:<br>номер:</td>
+        <td>data<br>дата:</td>
+    </tr>
+    <tr>
+        <td>9. Transportator<br>Перевозчик</td>
+        <td colspan="3"></td>
+    </tr>
+</table>
+
+<h3>1. Furnizor / Поставщик</h3>
+<p>____________________________________</p>
+
+<h3>2. Cumpărător / Покупатель</h3>
+<p></p>
+<p>____________________________________</p>
+
+<table class="header-table">
+    <tr>
+        <td>3. Delegat</td>
+        <td>data</td>
+        <td>delegatul</td>
+        <td>4. Documente anexate</td>
+    </tr>
+    <tr>
+        <td>Доверенность</td>
+        <td>дата</td>
+        <td>делегированный</td>
+        <td>Прилагаемые документы</td>
+    </tr>
+</table>
+
+<table class="main-table">
+    <tr>
+        <th rowspan="2">5. Punct încărcare<br>Пункт погрузки</th>
+        <th rowspan="2">6. Punct descărcare<br>Пункт разгрузки</th>
+        <th colspan="3">10. Denumirea mărfurilor, serviciilor și cod nomenclator al mărfii</th>
+        <th colspan="3">10.5 Valoarea totală fără TVA, lei<br>Общая стоимость без НДС, леи</th>
+        <th rowspan="2">7. Redirijări<br>Перераспред.</th>
+    </tr>
+    <tr>
+        <th>10.1 Denumirea mărfurilor, lucrări și nomenclatură</th>
+        <th>10.2 Unitatea de măsură</th>
+        <th>10.3 Cantitatea mărfurilor, serviciilor</th>
+        <th>10.6 Cotă TVA, %</th>
+        <th>10.7 Suma totală a TVA, lei</th>
+        <th>10.8 Valoarea totală a mărfurilor, serviciilor, lei (cu TVA)</th>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td colspan="3"></td>
+        <td colspan="3"></td>
+        <td colspan="1"></td>
+    </tr>
+    <tr>
+        <td colspan="12" class="section-title">11. TOTAL (pe pagina) / Всего (по странице)</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td colspan="3"></td>
+        <td colspan="3"></td>
+        <td colspan="1"></td>
+    </tr>
+</table>
+
+<table class="header-table">
+    <tr>
+        <td class="section-title">12. TOTAL (pe factura fiscală) / Всего (по налоговой накладной)</td>
+        <td class="no-border">x</td>
+        <td class="no-border">x</td>
+        <td class="no-border">x</td>
+    </tr>
+</table>
+
+</body>
+</html>
