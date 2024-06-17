@@ -24,7 +24,7 @@ const InsuranceSchema = new mongoose.Schema({
   TipAsigurare: { type: String, required: true },
   PretAsigurare: { type: Number, required: true },
   StatusAsigurare: { type: String, required: false },
-  NumarSerie: { type: String, required: true },
+  NumarSerie: { type: String, required: false },
   DataInceput: { type: Date, required: false },
   DataSfarsit: { type: Date, required: false }
 });

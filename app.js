@@ -218,6 +218,77 @@ app.get('/api/insurances/:id/download-pdf', (req, res) => {
   }
 });
 
+app.post('/api/calculate-price', (req, res) => {
+  const formData = req.body;
+  const basePrices = {
+    'RCA': 500,
+    'CASCO': 750,
+    'CARTE VERDE': 350,
+  };
+  let price = basePrices[formData.TipAsigurare] || 0;
+
+  const carCategoryCoefficients = {
+    Autoturism: 1.0,
+    Camion: 1.5,
+    Motocicleta: 0.8,
+  };
+
+  const bonusCategory = parseInt(formData.CategorieBonus, 10);
+  const bonusCategoryCoefficient =
+    bonusCategory >= -8 && bonusCategory <= 8
+      ? 1.0
+      : bonusCategory > 8 && bonusCategory <= 15
+      ? 0.9
+      : 0.8;
+
+  const fuelTypeCoefficients = {
+    Diesel: 1.1,
+    Benzina: 1.0,
+    Electric: 0.8,
+    Hibrid: 0.9,
+  };
+
+  const driverBirthDate = new Date(formData.DataNasterii);
+  const driverAge = new Date().getFullYear() - driverBirthDate.getFullYear();
+  const driverAgeCoefficient =
+    driverAge < 25 ? 1.2 : driverAge <= 60 ? 1.0 : 1.1;
+
+  const carProductionYear = parseInt(formData.AnProductie, 10);
+  const currentYear = new Date().getFullYear();
+  const carAge = currentYear - carProductionYear;
+  const carProductionYearCoefficient =
+    carAge < 5 ? 0.9 : carAge <= 10 ? 1.0 : 1.1;
+
+  const pollutionNormCoefficients = {
+    'Euro 3': 1.1,
+    'Euro 4': 1.0,
+    'Euro 5': 0.9,
+    'Euro 6': 0.8,
+  };
+
+  const cylinderCapacity = parseInt(formData.CapacitateCilindrica, 10);
+  const cylinderCapacityCoefficient =
+    cylinderCapacity <= 1500 ? 0.9 : cylinderCapacity <= 2500 ? 1.0 : 1.1;
+
+  const insurancePeriodCoefficients = {
+    '1 an': 1.0,
+    '6 luni': 1.05,
+    '3 luni': 1.1,
+  };
+
+  price *=
+    (carCategoryCoefficients[formData.CategoriaMasinii] || 1) *
+    bonusCategoryCoefficient *
+    (fuelTypeCoefficients[formData.TipCombustibil] || 1) *
+    driverAgeCoefficient *
+    carProductionYearCoefficient *
+    (pollutionNormCoefficients[formData.NormaDePoluare] || 1) *
+    cylinderCapacityCoefficient *
+    (insurancePeriodCoefficients[formData.PerioadaDeAsigurare] || 1);
+
+  res.json({ price });
+});
+
 app.get('/api/insurances', async (req, res) => {
   try {
     const insurances = await Insurance.find({});
