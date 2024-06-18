@@ -41,7 +41,6 @@ app.post('/api/insurance', async (req, res) => {
     res.status(500).send(err.message);
   }
 });
-
 app.patch('/api/insurances/:id/status', async (req, res) => {
   try {
     const { id } = req.params;
@@ -152,7 +151,16 @@ app.post('/api/insurances/:id/generate-invoice', async (req, res) => {
       return res.status(404).send('Asigurarea nu a fost găsită.');
     }
 
+    if (!insurance.NumarSerie) {
+      return res.status(400).send('Numar serie lipsește.');
+    }
+
     const template = fs.readFileSync(path.join(__dirname, 'templateFactura.html'), 'utf8');
+
+    const TVA_RATE = 0.19;
+    const pretFaraTVA = (insurance.PretAsigurare / (1 + TVA_RATE)).toFixed(2);
+    const sumaTVA = (insurance.PretAsigurare - pretFaraTVA).toFixed(2);
+    const dataEliberarii = new Date().toLocaleDateString('ro-RO');
 
     const replacements = {
       '{Nume}': insurance.Nume,
@@ -180,6 +188,12 @@ app.post('/api/insurances/:id/generate-invoice', async (req, res) => {
       '{DataSfarsit}': insurance.DataSfarsit,
       '{MarcaMasinii}': insurance.MarcaMasinii,
       '{Modelul}': insurance.Modelul,
+      '{DataEliberarii}': dataEliberarii,
+      '{PretFaraTVA}': pretFaraTVA,
+      '{SumaTVA}': sumaTVA,
+      '{TotalCuTVA}': insurance.PretAsigurare,
+      '{TotalFaraTVA}': pretFaraTVA,
+      '{TotalTVA}': sumaTVA,
     };
 
     let htmlContent = template;
@@ -201,6 +215,8 @@ app.post('/api/insurances/:id/generate-invoice', async (req, res) => {
     res.status(500).send('Eroare la server: ' + error.message);
   }
 });
+
+
 
 app.get('/api/insurances/:id/download-pdf', (req, res) => {
   const { id } = req.params;
